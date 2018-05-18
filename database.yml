@@ -1,0 +1,6 @@
+---
+- hosts: databse
+  become: true
+  tasks: 
+    - name: install mysql
+      apt: name=mysql_server state=present update_cache=yes
