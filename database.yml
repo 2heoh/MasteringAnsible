@@ -4,7 +4,7 @@
   tasks: 
 
     - name: install tools
-      apt: name={{}} state=present update_cache=yes
+      apt: name={{ item }} state=present update_cache=yes
       with_items:
         - python-mysqldb
 
