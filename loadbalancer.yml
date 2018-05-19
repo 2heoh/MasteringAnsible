@@ -5,9 +5,6 @@
     - name: install nginx
       apt: name=nginx state=present update_cache=yes
 
-    - name: ensure nginx started
-      service: name=nginx state=started enabled=yes
-
     - name: configure nginx
       template: src=templates/nginx.conf.j2 dest=/etc/nginx/sites-available/demo mode=0644
       notify: restart nginx
@@ -20,6 +17,8 @@
       file: src=/etc/nginx/sites-available/demo dest=/etc/nginx/sites-enabled/demo state=link
       notify: restart nginx
 
+    - name: ensure nginx started
+      service: name=nginx state=started enabled=yes
 
 
   handlers:
