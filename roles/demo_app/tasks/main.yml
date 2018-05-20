@@ -10,6 +10,10 @@
   copy: src=demo/app/. dest=/var/www/demo mode=0755
   notify: restart apache2
 
+- name: make wsgi-file from template
+  template: src=demo.wsgi.j2 dest=/var/www/demo/demo.wsgi mode=0755
+  notify: restart apache2
+
 - name: setup python virtualenv
   pip: requirements=/var/www/demo/app/requirements.txt virtualenv=/var/www/demo/.venv
   notify: restart apache2
