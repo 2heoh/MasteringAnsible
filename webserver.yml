@@ -2,5 +2,5 @@
   - hosts: webserver
     become: true
     roles:
-      - apache 2
+      - apache2
       - demo_app
