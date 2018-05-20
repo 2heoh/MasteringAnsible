@@ -1,5 +1,5 @@
 ---
-- name: install apache 2
+- name: install apache2
   apt: name={{item}} state=present update_cache=yes
   with_items:
     - python-pip
